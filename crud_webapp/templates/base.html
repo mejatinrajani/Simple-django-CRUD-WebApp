@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}CRUD WebApp{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+</head>
+<body>
+    <div class="page-shell">
+        <div class="ambient ambient-one"></div>
+        <div class="ambient ambient-two"></div>
+
+        <header class="navbar">
+            <button class="menu-icon" type="button" aria-label="Open navigation menu">
+                <i class='bx bx-menu'></i>
+            </button>
+            <a href="{% url 'home' %}" class="brand-mark">
+                <span class="brand-badge">A</span>
+                <div class="brand-copy">
+                    <strong>CRUD WebApp</strong>
+                    <span>Premium product workspace</span>
+                </div>
+            </a>
+            <div class="nav-actions">
+                <a href="{% url 'businessmanpanel' %}" class="nav-pill">Catalog</a>
+            </div>
+        </header>
+
+        <aside class="sidebar">
+            <button class="cut" type="button" aria-label="Close navigation menu">
+                <i class='bx bx-x'></i>
+            </button>
+            <div class="sidebar-header">
+                <p class="sidebar-label">Navigation</p>
+                <h2>Manage your storefront with style.</h2>
+            </div>
+            <nav class="text3">
+                <a href="{% url 'home' %}" class="txt4">
+                    <i class='bx bx-home-alt-2'></i>
+                    <span>Home</span>
+                </a>
+                <a href="{% url 'businessman_panellogin' %}" class="txt4">
+                    <i class='bx bx-lock-open-alt'></i>
+                    <span>Businessman Panel</span>
+                </a>
+                <a href="{% url 'addproduct' %}" class="txt4">
+                    <i class='bx bx-plus-circle'></i>
+                    <span>Add a Product</span>
+                </a>
+                <a href="{% url 'deleteproduct' %}" class="txt4">
+                    <i class='bx bx-trash'></i>
+                    <span>Delete a Product</span>
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <p>Curate products, sharpen presentation, and keep the catalog ready for customers.</p>
+            </div>
+        </aside>
+
+        <main class="page-content">
+            {% block body %}
+            {% endblock %}
+        </main>
+    </div>
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const sidebar = document.querySelector(".sidebar");
+        const cutbutton = document.querySelector(".cut");
+        const menubutton = document.querySelector(".menu-icon");
+
+        if (menubutton && cutbutton && sidebar) {
+            menubutton.addEventListener('click', () => {
+                sidebar.classList.add("active");
+            });
+
+            cutbutton.addEventListener('click', () => {
+                sidebar.classList.remove("active");
+            });
+        }
+    });
+</script>
+</html>

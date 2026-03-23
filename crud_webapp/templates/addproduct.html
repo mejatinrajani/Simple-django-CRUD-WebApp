@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}CRUD WebApp | Add Product{% endblock %}
+
+{% block body %}
+    <section class="page-panel form-panel">
+        <div class="section-heading">
+            <p class="eyebrow">New listing</p>
+            <h1>Add a product with a showroom-quality presentation.</h1>
+            <p>Capture the core details below and keep your catalog looking consistent, premium, and ready for customers.</p>
+        </div>
+        <form class="input1" action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="field-group">
+                <label for="title1">Product name</label>
+                <input id="title1" placeholder="Enter the product name" name="title1">
+            </div>
+            <div class="field-group">
+                <label for="price1">Price</label>
+                <input id="price1" placeholder="Enter the product price" name="price1">
+            </div>
+            <div class="field-group">
+                <label for="description1">Description</label>
+                <textarea id="description1" placeholder="Enter the detailed product description" rows="10" cols="35" name="description1"></textarea>
+            </div>
+            <div class="field-group">
+                <label for="img">Product image</label>
+                <input type="file" name="image1" id="img">
+            </div>
+            <button type="submit">Add Product</button>
+        </form>
+    </section>
+{% endblock %}
