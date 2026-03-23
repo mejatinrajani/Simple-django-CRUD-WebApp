@@ -1,60 +1,53 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
-    <link rel="stylesheet" href="{% static 'home.css' %}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-</head>
-<body>
-    <div class="navbar">
-        <div class="menu-icon">
-            <i class='bx bx-menu'></i>
+{% extends 'base.html' %}
+
+{% block title %}CRUD WebApp | Home{% endblock %}
+
+{% block body %}
+    <section class="hero-panel">
+        <div class="hero-copy">
+            <p class="eyebrow">Storefront command center</p>
+            <h1>Build a catalog experience that feels curated, polished, and ready to sell.</h1>
+            <p class="hero-text">
+                CRUD WebApp helps you present products with cleaner operations, faster search, and a dashboard that feels premium from the first click.
+            </p>
+            <div class="hero-actions">
+                <a href="{% url 'businessmanpanel' %}" class="primary-link">Explore Catalog</a>
+                <a href="{% url 'addproduct' %}" class="secondary-link">Add New Product</a>
+            </div>
+            <form action="" class="search-bar">
+                <label for="search" class="search-label">Quick product search</label>
+                <div class="search-field">
+                    <i class='bx bx-search-alt-2'></i>
+                    <input id="search" type="search" placeholder="Search products, categories, or pricing..." name="search">
+                    <button class="search-btn" type="submit">Search</button>
+                </div>
+            </form>
         </div>
-    </div>
 
-    <div class="sidebar">
-        <div class="cut">
-            <i class='bx bx-x'></i>
+        <div class="hero-metrics">
+            <div class="metric-card featured-metric">
+                <span>Refined workflow</span>
+                <strong>One place to manage listings</strong>
+                <p>Move from onboarding to catalog updates with fewer clicks and clearer visual hierarchy.</p>
+            </div>
+            <div class="metric-grid">
+                <div class="metric-card">
+                    <span>Design language</span>
+                    <strong>Luxury retail feel</strong>
+                </div>
+                <div class="metric-card">
+                    <span>Faster actions</span>
+                    <strong>Focused navigation</strong>
+                </div>
+                <div class="metric-card">
+                    <span>Ready for growth</span>
+                    <strong>Scales with new items</strong>
+                </div>
+                <div class="metric-card">
+                    <span>Visual clarity</span>
+                    <strong>Better product browsing</strong>
+                </div>
+            </div>
         </div>
-        <div class="text3">
-            <div class="txt4"> 
-                <a href=""><p><u>Home</u> </p></a>
-            </div>
-            <div class="txt4"> 
-                <a href="{% url 'businessman_panellogin' %}"><p><u>Businessman Panel</u> </p></a>
-            </div>
-            <div class="txt4"> 
-                <a href=""><p><u></u></p></a>
-            </div>
-            <div class="txt4"> 
-                <a href=""><p><u></u></p></a>
-            </div>
-        </div>
-    </div>
-
-    <form action="" class="search-bar">
-        <input type="search" placeholder="Search Your ToDo" name="search" pattern=".\S." required>
-        <button class="search-btn" type="submit">
-            <span>Search</span>
-        </button>
-    </form>
-</body>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const sidebar = document.querySelector(".sidebar");
-        const cutbutton = document.querySelector(".cut");
-        const menubutton = document.querySelector(".menu-icon");
-
-        menubutton.addEventListener('click', () => {
-            sidebar.classList.add("active");
-        });
-
-        cutbutton.addEventListener('click', () => {
-            sidebar.classList.remove("active");
-        });
-    });
-</script>
-</html>
+    </section>
+{% endblock %}
